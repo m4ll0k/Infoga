@@ -4,3 +4,9 @@ Infoga is a tool gathering email accounts informations (ip,hostname,country,...)
 
 ![screen](https://raw.githubusercontent.com/m4ll0k/Infoga/master/screen.PNG)
 
+## Installation
+```
+$ git clone https://github.com/m4ll0k/Infoga.git infoga
+$ cd infoga
+$ python3 infoga.py
+```
