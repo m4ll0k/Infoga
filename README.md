@@ -212,5 +212,80 @@ ________________________________________
  |  Details: https://hacked-emails.com/leak/5c362e1dc7e6d7dc40ab/justiceforpaigedoherty-f-b-i-amp-c-i-a-leaked
  |  Source Network: clearnet
 
+```
+
+```
+$ python3 infoga.py --info matteo.rossi@gmail.com --verbose 3
+```
+
+```
+________________________________________
+ Infoga - Email Information Gathering
+        Momo Outaadi (m4ll0k)
+      https://github.com/m4ll0k
+________________________________________
+
+[+] Email: matteo.rossi@gmail.com (64.233.187.27)
+ |  Hostname: tj-in-f27.1e100.net
+ |  Country: US (United States)
+ |  ASN: AS15169
+ |  ISP: Google
+ |  Map: Map: https://www.google.com/maps/@34.05439999999999,-118.244,10z (34.05439999999999,-118.244)
+ |  Organization: Google
+ |  Ports: [25]
+
+```
+
+```
+$ python3 infoga.py --info matteo.rossi@gmail.com --breach --verbose 3
+```
+
+```
+________________________________________
+ Infoga - Email Information Gathering
+        Momo Outaadi (m4ll0k)
+      https://github.com/m4ll0k
+________________________________________
+
+[+] Email: matteo.rossi@gmail.com (64.233.187.26)
+ |  Hostname: tj-in-f26.1e100.net
+ |  Country: US (United States)
+ |  City: Mountain View (CA)
+ |  ASN: AS15169
+ |  ISP: Google
+ |  Map: Map: https://www.google.com/maps/@37.41919999999999,-122.0574,10z (37.41919999999999,-122.0574)
+ |  Organization: Google
+ |  Ports: [25]
+
+[!] This email was leaked... found 6 results..
+ |  Leaked in: emaildatalist.net
+ |  Data Leaked: 2017-09-01T00:00:00+00:00
+ |  Details: https://hacked-emails.com/leak/0600f5a565572edeceff/emaildatalist-net
+ |  Source Network: darknet
+
+ |  Leaked in: elance.com
+ |  Data Leaked: 2017-03-01T00:00:00+00:00
+ |  Details: https://hacked-emails.com/leak/fa468625387cae31ceab/elance-com
+ |  Source Network: darknet
+
+ |  Leaked in: modbsolutions.com
+ |  Data Leaked: 2016-09-01T00:00:00+00:00
+ |  Details: https://hacked-emails.com/leak/bb2b8fd5d8df4e76c359/modbsolutions-com
+ |  Source Network: darknet
+
+ |  Leaked in: Unknown Crawler Database
+ |  Data Leaked: 2016-09-01T00:00:00+00:00
+ |  Details: https://hacked-emails.com/leak/ebff7f33ba79739f4157/unknown-crawler-database
+ |  Source Network: darknet
+
+ |  Leaked in: Unknown Subscribers Database
+ |  Data Leaked: 2016-07-01T00:00:00+00:00
+ |  Details: https://hacked-emails.com/leak/25fee9233cf4ef0f75de/unknown-subscribers-database
+ |  Source Network: darknet
+
+ |  Leaked in: myspace.com
+ |  Data Leaked: 2013-05-01T00:00:00+00:00
+ |  Details: https://hacked-emails.com/leak/1d48d9be2f718eb6ab2e/myspace-com
+ |  Source Network: clearnet
 
 ```
