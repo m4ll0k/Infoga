@@ -95,7 +95,7 @@ class infoga(object):
 			ip = self.tester(email)
 			if ip != ([] or None):
 				for i in ip: # search info and print info :)
-					data(i,json.loads(self.shodan(i)),email,self.verbose)
+					data(i,json.loads(self.shodan(i).decode('utf-8')),email,self.verbose)
 					if self.breach:ppwned(self.pwned(email),self.verbose)
 			else:more('Not found any informations for %s'%(email))
 		# end
