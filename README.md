@@ -27,3 +27,15 @@ $ python infoga.py --info m4ll0k@protonmail.com --breach -v 3 --report ../m4ll0k
 ```
 
 ![info](https://raw.githubusercontent.com/m4ll0k/Infoga/master/screen/image_5.png)
+
+## Development
+
+If you want develop a new feature then create a fork and submit Pull requests.
+
+```bash
+$ git clone https://github.com/[your_fork]/Infoga.git infoga
+$ cd infoga
+$ python -m venv .
+$ source bin/acktivate
+$ python3 setup.py develop
+``
