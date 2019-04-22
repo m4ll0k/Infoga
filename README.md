@@ -13,6 +13,20 @@ $ python setup.py install
 $ python infoga.py
 ```
 
+
+## Docker Build
+
+```
+$ docker build -t xshuden/infoga .
+```
+
+## Docker Usage
+
+```
+$ docker run --rm -it xshuden/infoga --domain nsa.gov --source all
+$ docker run --rm -it -v '$(pwd):/tmp/' xshuden/infoga --domain nsa.gov --source all
+```
+
 ## Usage
 
 ```
