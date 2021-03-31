@@ -28,7 +28,9 @@ def more(string): print(" %s|%s  %s" % (W % 0, E, string))
 
 
 class PPrint(object):
-    '''PPrint class'''
+    """
+    PPrint class
+    """
 
     def __init__(self, ips, email, ver, pwned=False, report=None):
         self.ips = ips
@@ -39,7 +41,7 @@ class PPrint(object):
         self.separator = lambda x: '-' * x
         self.pwned = pwned
         self.file = None
-        if report != None:
+        if report:
             self.file = report
 
     def output(self):
@@ -66,7 +68,7 @@ class PPrint(object):
                     print(headers)
             if self.file:
                 self.file.writelines(self.separator(30) + '\n')
-            # if verbose 2
+        # if verbose 2
         elif self.verbose == 2:
             email = 'Email: %s (%s)' % (self.email, ', '.join([x for x in self.ips]))
             plus(email)
@@ -76,14 +78,15 @@ class PPrint(object):
                 data = json.loads(Shodan(self.ips[0]).search())
                 if isinstance(data, dict):
                     data = None
-		    if data:
-				headers = ''
-				headers += '%s- Hostname: %s\n' % (self.spaces(1), data.get('hostnames')[0]) if data.has_key('hostnames')
-				if data.has_key('country_code') and data.has_key('country_name'):
-					headers += '%s- Country: %s (%s)\n' % (
-                    self.spaces(1), data.get('country_code'), data.get('country_name'))
-					if data.has_key('city') and data.has_key('region_code'):
-						headers += '%s- City: %s (%s)' % (self.spaces(1), data.get('city'), data.get('region_code'))
+            if data:
+                headers = ''
+                if data.has_key('hostnames'):
+                    headers += '%s- Hostname: %s\n' % (self.spaces(1), data.get('hostnames')[0])
+                if data.has_key('country_code') and data.has_key('country_name'):
+                    headers += '%s- Country: %s (%s)\n' % (
+                        self.spaces(1), data.get('country_code'), data.get('country_name'))
+                if data.has_key('city') and data.has_key('region_code'):
+                    headers += '%s- City: %s (%s)' % (self.spaces(1), data.get('city'), data.get('region_code'))
                 if self.file:
                     self.file.write(headers + '\n')
                 print(headers)
