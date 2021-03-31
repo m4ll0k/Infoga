@@ -9,23 +9,23 @@ from lib.output import *
 from lib.request import *
 from lib.parser import *
 
+
+def getemail(content, target):
+    return parser(content, target).email()
+
+
 class Ask(Request):
-	def __init__(self,target):
-		Request.__init__(self)
-		self.target = target
+    def __init__(self, target):
+        super.__init__()
+        self.target = target
 
-	def search(self):
-		test('Searching "%s" in Ask...'%(self.target))
-		url = "http://www.ask.com/web?q=%40{target}&pu=100&page=0".format(
-			target=self.target)
-		try:
-			resp = self.send(
-				method = 'GET',
-				url = url
-				)
-			return self.getemail(resp.content,self.target)
-		except Exception as e:
-			print(e)
-
-	def getemail(self,content,target):
-		return parser(content,target).email()
+    def search(self):
+        test('Searching "%s" in Ask...' % self.target)
+        url = "http://www.ask.com/web?q=%40{target}&pu=100&page=0".format(
+            target=self.target)
+        try:
+            resp = self.send(method='GET', url=url)
+        except requests.exceptions.HTTPError:
+            raise
+        else:
+            getemail(resp.content, self.target)
