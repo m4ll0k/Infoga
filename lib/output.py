@@ -58,8 +58,8 @@ class PPrint(object):
                     print('%s>> This email wasn\'t leaked' % self.spaces(1))
                     if self.file:
                         self.file.write('%s>> This email wasn\'t leaked\n' % self.spaces(1))
-                elif data.has_key('Breaches'):
-                    if data.get('Breaches') is None and data.has_key('Breaches'):
+                elif "Breaches" in data.keys():
+                    if data.get('Breaches') is None:
                         data.pop('Breaches')
                         data['Breaches'] = data.pop('Pastes')
                     headers = '%s>> This email was leaked... found %s results' % (self.spaces(1), len(data['Breaches']))
@@ -80,12 +80,12 @@ class PPrint(object):
                     data = None
             if data:
                 headers = ''
-                if data.has_key('hostnames'):
+                if "hostnames" in data.keys():
                     headers += '%s- Hostname: %s\n' % (self.spaces(1), data.get('hostnames')[0])
-                if data.has_key('country_code') and data.has_key('country_name'):
+                if "country_code" and "country_name" in data.keys():
                     headers += '%s- Country: %s (%s)\n' % (
                         self.spaces(1), data.get('country_code'), data.get('country_name'))
-                if data.has_key('city') and data.has_key('region_code'):
+                if "city" and "region_code" in data.keys():
                     headers += '%s- City: %s (%s)' % (self.spaces(1), data.get('city'), data.get('region_code'))
                 if self.file:
                     self.file.write(headers + '\n')
@@ -103,18 +103,18 @@ class PPrint(object):
                     if self.file:
                         self.file.write('%s>> This email wasn\'t leaked\n' % (self.spaces(1)))
                     headers += '%s\n' % self.separator(30)
-                elif data.has_key('Breaches'):
-                    if data.get('Breaches') is None and data.has_key('Breaches'):
+                elif "Breaches" in data.kesy():
+                    if data.get('Breaches') is None:
                         data.pop('Breaches')
                         data['Breaches'] = data.pop('Pastes')
                     headers = '%s>> This email was leaked... found %s results...\n' % (
                         self.spaces(1), len(data['Breaches']))
                     for i in range(0, len(data['Breaches'])):
-                        if data['Breaches'][i].has_key('Title'):
+                        if data['Breaches'][i].keys('Title'):
                             headers += '%s> Leaked in: %s\n' % (self.spaces(2), data['Breaches'][i].get('Title'))
-                        if data['Breaches'][i].has_key('BreachDate'):
+                        if "BreachDate" in data['Breaches'][i].keys():
                             headers += '%s> Data Leaked: %s\n' % (self.spaces(2), data['Breaches'][i].get('BreachDate'))
-                        if data['Breaches'][i].has_key('IsVerified'):
+                        if data['Breaches'][i].keys('IsVerified'):
                             headers += '%s> Verified: %s\n' % (self.spaces(2), data['Breaches'][i].get('IsVerified'))
                         headers += '%s%s\n' % (self.spaces(2), self.separator(30))
                     if self.file:
@@ -132,30 +132,30 @@ class PPrint(object):
                     data = None
             if data:
                 headers = ''
-                print(data.has_key('hostnames'))
+                print("hostnames" in data.keys())
                 exit()
-                if data.has_key('hostnames'):
+                if "hostnames" in data.keys():
                     headers += '%s- Hostname: %s\n' % (self.spaces(1), data.get('hostnames')[0])
-                if data.has_key('country_code') and data.has_key('country_name'):
+                if "country_code" and "country_name" in data.keys():
                     headers += '%s- Country: %s (%s)\n' % (
                         self.spaces(1), data.get('country_code'), data.get('country_name'))
-                if data.has_key('city') and data.has_key('region_code'):
+                if "city" and "region_code" in data.keys():
                     headers += '%s- City: %s (%s)\n' % (self.spaces(1), data.get('city'), data.get('region_code'))
-                if data.has_key('asn'):
+                if data.keys('asn'):
                     headers += '%s- ASN: %s\n' % (self.spaces(1), data.get('asn'))
-                if data.has_key('isp'):
+                if "isp" in data.keys():
                     headers += '%s- ISP: %s\n' % (self.spaces(1), data.get('isp'))
-                if data.has_key('latitude') and data.has_key('longitude'):
+                if "latitude" and "longitude" in data.keys():
                     headers += '%s- Map: https://www.google.com/maps/@%s,%s,10z (%s,%s)\n' % (
                         self.spaces(1), data.get('latitude'), data.get('longitude'),
                         data.get('latitude'), data.get('longitude')
                     )
-                if data.has_key('org'):
+                if "org" in data.keys():
                     headers += '%s- Organization: %s\n' % (self.spaces(1), data.get('org'))
-                if data.has_key('ports'):
+                if "ports" in data.keys():
                     headers += '%s- Ports: %s' % (self.spaces(1), ', '.join([str(x) for x in data.get('ports')]))
 
-                if headers != '':
+                if headers:
                     if self.file:
                         self.file.write(headers)
                     print(headers)
@@ -171,24 +171,26 @@ class PPrint(object):
                     print('%s>> This email wasn\'t leaked' % self.spaces(1))
                     if self.file:
                         self.file.write('%s>> This email wasn\'t leaked\n' % (self.spaces(1)))
-                elif data.has_key('Breaches'):
-                    if data.get('Breaches') is None and data.has_key('Breaches'):
+                    elif data is not None and "Breaches" in data.keys():
                         data.pop('Breaches')
                         data['Breaches'] = data.pop('Pastes')
-                    headers = '%s>> This email was leaked... found %s results...\n' % (
-                        self.spaces(1), len(data['Breaches']))
-                    for i in range(0, len(data['Breaches'])):
-                        if data['Breaches'][i].has_key('Title'):
-                            headers += '%s> Leaked in: %s\n' % (self.spaces(2), data['Breaches'][i].get('Title'))
-                        if data['Breaches'][i].has_key('BreachDate'):
-                            headers += '%s> Data Leaked: %s\n' % (self.spaces(2), data['Breaches'][i].get('BreachDate'))
-                        if data['Breaches'][i].has_key('IsVerified'):
-                            headers += '%s> Verified: %s\n' % (self.spaces(2), data['Breaches'][i].get('IsVerified'))
-                        if data['Breaches'][i].has_key('Description'):
-                            headers += '%s> Description: %s\n' % (
-                                self.spaces(2), data['Breaches'][i].get('Description'))
-                        headers += '%s%s\n' % (self.spaces(2), self.separator(30))
+                        headers = '%s>> This email was leaked... found %s results...\n' % (
+                            self.spaces(1), len(data['Breaches']))
+                        for i in range(0, len(data['Breaches'])):
+                            if "Title" in data['Breaches'][i].keys():
+                                headers += '%s> Leaked in: %s\n' % (self.spaces(2),
+                                                                    data['Breaches'][i].get('Title'))
+                            if "BreachDate" in data['Breaches'][i].keys():
+                                headers += '%s> Data Leaked: %s\n' % (self.spaces(2),
+                                                                      data['Breaches'][i].get('BreachDate'))
+                            if "IsVerified" in data['Breaches'][i].keys():
+                                headers += '%s> Verified: %s\n' % (self.spaces(2),
+                                                                   data['Breaches'][i].get('IsVerified'))
+                            if "Description" in data['Breaches'][i].keys():
+                                headers += '%s> Description: %s\n' % (
+                                    self.spaces(2), data['Breaches'][i].get('Description'))
+                            headers += '%s%s\n' % (self.spaces(2), self.separator(30))
 
-                    if self.file:
-                        self.file.write('\n' + headers.encode('utf-8'))
-                    print(headers.encode('utf-8'))
+                        if self.file:
+                            self.file.write('\n' + headers.encode('utf-8'))
+                        print(headers.encode('utf-8'))
