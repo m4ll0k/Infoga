@@ -11,7 +11,7 @@ from lib.parser import *
 
 class Dogpile(Request):
 	def __init__(self,target):
-		Request.__init__(self)
+		super(Dogpile, self).__init__()
 		self.target = target
 
 	def search(self):

@@ -16,7 +16,7 @@ def getemail(content, target):
 
 class Bing(Request):
     def __init__(self, target):
-        Request.__init__(self)
+        super(Bing, self).__init__()
         self.target = target
 
     def search(self):

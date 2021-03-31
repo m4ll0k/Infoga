@@ -16,7 +16,7 @@ def getemail(content, target):
 
 class Ask(Request):
     def __init__(self, target):
-        super.__init__()
+        super(Ask, self).__init__()
         self.target = target
 
     def search(self):
