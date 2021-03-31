@@ -43,13 +43,12 @@ class infoga(object):
     def search(self, module):
         emails = module.search()
         # precise check that emails exist that is is not none
-        if not emails:
-            raise ValueError("No e-mails were found")
-        for email in emails:
-            self.listEmail.append(email) if email not in self.listEmail else print("{} already in emails".format(email))
+        if emails:
+            for email in emails:
+                self.listEmail.append(email) if email not in self.listEmail else print("{} already in emails".format(email))
 
-        if self.verbose in (1, 2, 3):
-            info('Found %s emails in %s' % (len(emails),
+            if self.verbose in (1, 2, 3):
+                    info('Found %s emails in %s' % (len(emails),
                                             module.__class__.__name__))
 
     def engine(self, target, engine):
