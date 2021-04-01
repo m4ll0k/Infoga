@@ -103,7 +103,7 @@ class PPrint(object):
                     if self.file:
                         self.file.write('%s>> This email wasn\'t leaked\n' % (self.spaces(1)))
                     headers += '%s\n' % self.separator(30)
-                elif "Breaches" in data.kesy():
+                elif "Breaches" in data.keys():
                     if data.get('Breaches') is None:
                         data.pop('Breaches')
                         data['Breaches'] = data.pop('Pastes')
@@ -128,7 +128,7 @@ class PPrint(object):
                 self.file.write('[+] ' + email + '\n')
             if self.ips:
                 data = json.loads(Shodan(self.ips[0]).search())
-                if data == {}:
+                if isinstance(data, dict) and data.__len__()==0:
                     data = None
             if data:
                 headers = ''
