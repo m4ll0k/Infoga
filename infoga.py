@@ -45,11 +45,12 @@ class infoga(object):
         # precise check that emails exist that is is not none
         if emails:
             for email in emails:
-                self.listEmail.append(email) if email not in self.listEmail else print("{} already in emails".format(email))
+                self.listEmail.append(email) if email not in self.listEmail else print(
+                    "{} already in emails".format(email))
 
             if self.verbose in (1, 2, 3):
-                    info('Found %s emails in %s' % (len(emails),
-                                            module.__class__.__name__))
+                info('Found %s emails in %s' % (len(emails),
+                                                module.__class__.__name__))
 
     def engine(self, target, engine):
         engine_list = [Ask(target), Baidu(target), Bing(target), Dogpile(target),
@@ -81,16 +82,10 @@ class infoga(object):
                     plus('Searching for: %s' % arg)
                 if option in ('-h', '--help'): Banner().usage(True)
         ### start ####
-        if self.domain != ('' or None):
-            if self.source == 'ask': self.engine(self.domain, 'ask')
-            if self.source == 'all': self.engine(self.domain, 'all')
-            if self.source == 'google': self.engine(self.domain, 'google')
-            if self.source == 'baidu': self.engine(self.domain, 'baidu')
-            if self.source == 'bing': self.engine(self.domain, 'bing')
-            if self.source == 'dogpile': self.engine(self.domain, 'dogpile')
-            if self.source == 'exalead': self.engine(self.domain, 'exalead')
-            if self.source == 'pgp': self.engine(self.domain, 'pgp')
-            if self.source == 'yahoo': self.engine(self.domain, 'yahoo')
+        if self.domain:
+            engines = ["ask", "all", "google", "baidu", "bing", "dogpile", "exalead", "pgp", "yahoo"]
+            if self.source in engines:
+                self.engine(self.domain, self.source)
 
         if not self.listEmail:
             sys.exit(warn('No emails found... :('))
