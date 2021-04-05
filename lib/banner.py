@@ -6,14 +6,25 @@
 # @author : Momo Outaadi (m4ll0k)
 
 from lib.colors import *
+artwork = r"""
+  _____        __                  
+ |_   _|      / _|                 
+   | |  _ __ | |_ ___   __ _  __ _ 
+   | | | '_ \|  _/ _ \ / _` |/ _` |
+  _| |_| | | | || (_) | (_| | (_| |
+ |_____|_| |_|_| \___/ \__, |\__,_|
+                        __/ |      
+                       |___/       
+"""
 
 class Banner:
 	def banner(self):
 		print("_"*40)
-		print("-==[ Infoga - Email OSINT ")
+		print(artwork)
 		print("-==[ Momo (m4ll0k) Outaadi ")
 		print("-==[ %shttps://github.com/m4ll0k%s "%(Y%0,E))
 		print("_"*40 + "\n")
+
 
 	def usage(self,_exit_=False):
 		self.banner()
